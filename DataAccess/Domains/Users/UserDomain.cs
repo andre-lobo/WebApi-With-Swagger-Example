@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace DataAccess.Domains.Users
 {
-    public class UserDomain
+    public class UserDomain : IUserDomain
     {
         #region Public Methods
 

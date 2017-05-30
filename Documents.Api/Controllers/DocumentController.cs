@@ -16,11 +16,18 @@ namespace Documents.Api.Controllers
     {
         #region Private Variables
 
-        private readonly DocumentDomain _documentDomain = new DocumentDomain();
+        private readonly IDocumentDomain _IDocumentDomain;
 
         #endregion
 
-        #region Actions
+        #region Constructor
+
+        public DocumentController(IDocumentDomain documentDomain)
+        {
+            _IDocumentDomain = documentDomain;
+        }
+
+        #endregion
 
         #region Actions
 
@@ -38,7 +45,7 @@ namespace Documents.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var documentInserted = await _documentDomain.Insert(document);
+                    var documentInserted = await _IDocumentDomain.Insert(document);
 
                     if (documentInserted != null)
                         return Ok(documentInserted);
@@ -70,7 +77,7 @@ namespace Documents.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var documentUpdated = await _documentDomain.Update(documentId, document);
+                    var documentUpdated = await _IDocumentDomain.Update(documentId, document);
 
                     if (documentUpdated != null)
                         return Ok(documentUpdated);
@@ -97,7 +104,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                await _documentDomain.Delete(documentId);
+                await _IDocumentDomain.Delete(documentId);
                 return Ok();
             }
             catch (Exception ex)
@@ -117,7 +124,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                var documents = await _documentDomain.ListAll();
+                var documents = await _IDocumentDomain.ListAll();
                 return Ok(documents);
             }
             catch (Exception ex)
@@ -138,7 +145,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                var document = await _documentDomain.Find(documentId);
+                var document = await _IDocumentDomain.Find(documentId);
                 return Ok(document);
             }
             catch (Exception ex)
@@ -146,8 +153,6 @@ namespace Documents.Api.Controllers
                 return InternalServerError(ex);
             }
         }
-
-        #endregion
 
         #endregion
     }

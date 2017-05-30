@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Domains.Documents
 {
-    public class CategoryDomain
+    public class CategoryDomain : ICategoryDomain
     {
         #region Public Methods
 

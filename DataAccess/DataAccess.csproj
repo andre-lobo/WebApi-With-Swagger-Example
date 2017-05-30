@@ -55,6 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domains\Documents\IAttachmentDomain.cs" />
+    <Compile Include="Domains\Documents\ICategoryDomain.cs" />
+    <Compile Include="Domains\Documents\IDocumentDomain.cs" />
+    <Compile Include="Domains\Documents\IGaleryDomain.cs" />
+    <Compile Include="Domains\Users\IUserDomain.cs" />
     <Compile Include="Migrations\201705291538092_Change001.cs" />
     <Compile Include="Migrations\201705291538092_Change001.Designer.cs">
       <DependentUpon>201705291538092_Change001.cs</DependentUpon>

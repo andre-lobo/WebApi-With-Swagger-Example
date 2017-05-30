@@ -16,7 +16,16 @@ namespace Documents.Api.Controllers
     {
         #region Private Variables
 
-        private readonly UserDomain _userDomain = new UserDomain();
+        private readonly IUserDomain _IUserDomain;
+
+        #endregion
+
+        #region Constructor
+
+        public UserController(IUserDomain userDomain)
+        {
+            _IUserDomain = userDomain;
+        }
 
         #endregion
 
@@ -36,7 +45,7 @@ namespace Documents.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var userInserted = await _userDomain.Insert(user);
+                    var userInserted = await _IUserDomain.Insert(user);
 
                     if (userInserted != null)
                         return Ok(userInserted);
@@ -67,7 +76,7 @@ namespace Documents.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var userUpdated = await _userDomain.Update(userId, user);
+                    var userUpdated = await _IUserDomain.Update(userId, user);
 
                     if (userUpdated != null)
                         return Ok(userUpdated);
@@ -94,7 +103,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                await _userDomain.Delete(userId);
+                await _IUserDomain.Delete(userId);
                 return Ok();
             }
             catch (Exception ex)
@@ -114,7 +123,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                var users = await _userDomain.ListAll();
+                var users = await _IUserDomain.ListAll();
                 return Ok(users);
             }
             catch (Exception ex)
@@ -135,7 +144,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                var user = await _userDomain.Find(userId);
+                var user = await _IUserDomain.Find(userId);
                 return Ok(user);
             }
             catch (Exception ex)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Domains.Documents
 {
-    public class AttachmentDomain
+    public class AttachmentDomain : IAttachmentDomain
     {
         #region Public Methods
 

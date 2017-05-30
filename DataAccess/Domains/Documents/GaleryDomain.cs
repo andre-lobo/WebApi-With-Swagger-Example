@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Domains.Documents
 {
-    public class GaleryDomain
+    public class GaleryDomain : IGaleryDomain
     {
         #region Public Methods
 

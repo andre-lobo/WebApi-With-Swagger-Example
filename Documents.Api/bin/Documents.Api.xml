@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Documents.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Documents.Api.App_Start.NinjectWebCommon.Start">
+            <summary>
+            Starts the application
+            </summary>
+        </member>
+        <member name="M:Documents.Api.App_Start.NinjectWebCommon.Stop">
+            <summary>
+            Stops the application.
+            </summary>
+        </member>
+        <member name="M:Documents.Api.App_Start.NinjectWebCommon.CreateKernel">
+            <summary>
+            Creates the kernel that will manage your application.
+            </summary>
+            <returns>The created kernel.</returns>
+        </member>
+        <member name="M:Documents.Api.App_Start.NinjectWebCommon.RegisterServices(Ninject.IKernel)">
+            <summary>
+            Load your modules or register your services here!
+            </summary>
+            <param name="kernel">The kernel.</param>
+        </member>
+        <member name="T:Documents.Api.Controllers.DocumentController">
+            <summary>
+            Api que fornece recursos para manipular informações de Documentos.
+            </summary>
+        </member>
+        <member name="M:Documents.Api.Controllers.DocumentController.Post(Entities.Documents.Document)">
+            <summary>
+            Recurso que insere um novo documento.
+            </summary>
+            <param name="document">Entidade Document</param>
+            <returns>Documento inserido</returns>
+        </member>
+        <member name="M:Documents.Api.Controllers.DocumentController.Put(System.Int32,Entities.Documents.Document)">
+            <summary>
+            Recurso que atualiza informações de um documento.
+            </summary>
+            <param name="documentId">Id do documento</param>
+            <param name="document">Entidade Document com informações atualizadas</param>
+            <returns>Documento atualizado</returns>
+        </member>
+        <member name="M:Documents.Api.Controllers.DocumentController.Delete(System.Int32)">
+            <summary>
+            Recurso que exclui um documento.
+            </summary>
+            <param name="documentId">Id do documento</param>
+            <returns></returns>
+        </member>
+        <member name="M:Documents.Api.Controllers.DocumentController.Get">
+            <summary>
+            Recurso que retorna a lista de documentos cadastrados.
+            </summary>
+            <returns>Lista de documentos cadastrados</returns>
+        </member>
+        <member name="M:Documents.Api.Controllers.DocumentController.Get(System.Int32)">
+            <summary>
+            Recurso que retorna o documento a partir do seu Id.
+            </summary>
+            <param name="documentId">Id do documento</param>
+            <returns>Entidade Document</returns>
+        </member>
+        <member name="T:Documents.Api.Controllers.UserController">
+            <summary>
+            Api que fornece recursos para manipular informações de Usuários.
+            </summary>
+        </member>
+        <member name="M:Documents.Api.Controllers.UserController.Post(Entities.Users.User)">
+            <summary>
+            Recurso que insere um novo usuário.
+            </summary>
+            <param name="user">Entidade User</param>
+            <returns>Usuário inserido</returns>
+        </member>
+        <member name="M:Documents.Api.Controllers.UserController.Put(System.Int32,Entities.Users.User)">
+            <summary>
+            Recurso que atualiza informações de um usuário.
+            </summary>
+            <param name="userId">Id do usuário</param>
+            <param name="user">Entidade User com informações atualizadas</param>
+            <returns>Usuário atualizado</returns>
+        </member>
+        <member name="M:Documents.Api.Controllers.UserController.Delete(System.Int32)">
+            <summary>
+            Recurso que exclui um usuário.
+            </summary>
+            <param name="userId">Id do usuário</param>
+            <returns></returns>
+        </member>
+        <member name="M:Documents.Api.Controllers.UserController.Get">
+            <summary>
+            Recurso que retorna a lista de usuários cadastrados.
+            </summary>
+            <returns>Lista de usuários cadastrados</returns>
+        </member>
+        <member name="M:Documents.Api.Controllers.UserController.Get(System.Int32)">
+            <summary>
+            Recurso que retorna o usuário a partir do seu Id.
+            </summary>
+            <param name="userId">Id do usuário</param>
+            <returns>Entidade User</returns>
+        </member>
+    </members>
+</doc>

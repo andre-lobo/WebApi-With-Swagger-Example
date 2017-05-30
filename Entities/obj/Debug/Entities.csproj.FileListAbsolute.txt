@@ -1,0 +1,4 @@
+C:\Andre\Projects\DotNet\WebApi-With-Swagger-Example\Entities\bin\Debug\Entities.dll
+C:\Andre\Projects\DotNet\WebApi-With-Swagger-Example\Entities\bin\Debug\Entities.pdb
+C:\Andre\Projects\DotNet\WebApi-With-Swagger-Example\Entities\obj\Debug\Entities.dll
+C:\Andre\Projects\DotNet\WebApi-With-Swagger-Example\Entities\obj\Debug\Entities.pdb
