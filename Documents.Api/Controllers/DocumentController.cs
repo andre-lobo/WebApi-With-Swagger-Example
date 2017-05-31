@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Http.Description;
-using DataAccess.Domains.Documents;
 using System.Threading.Tasks;
 using Entities.Documents;
 using System.Collections.Generic;
+using DataAccess.Repository.Documents;
 
 namespace Documents.Api.Controllers
 {
@@ -16,15 +16,15 @@ namespace Documents.Api.Controllers
     {
         #region Private Variables
 
-        private readonly IDocumentDomain _IDocumentDomain;
+        private readonly IDocumentRepository _IDocumentRepository;
 
         #endregion
 
         #region Constructor
 
-        public DocumentController(IDocumentDomain documentDomain)
+        public DocumentController(IDocumentRepository documentDomain)
         {
-            _IDocumentDomain = documentDomain;
+            _IDocumentRepository = documentDomain;
         }
 
         #endregion
@@ -45,7 +45,7 @@ namespace Documents.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var documentInserted = await _IDocumentDomain.Insert(document);
+                    var documentInserted = await _IDocumentRepository.Insert(document);
 
                     if (documentInserted != null)
                         return Ok(documentInserted);
@@ -77,7 +77,7 @@ namespace Documents.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var documentUpdated = await _IDocumentDomain.Update(documentId, document);
+                    var documentUpdated = await _IDocumentRepository.Update(documentId, document);
 
                     if (documentUpdated != null)
                         return Ok(documentUpdated);
@@ -104,7 +104,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                await _IDocumentDomain.Delete(documentId);
+                await _IDocumentRepository.Delete(documentId);
                 return Ok();
             }
             catch (Exception ex)
@@ -124,7 +124,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                var documents = await _IDocumentDomain.ListAll();
+                var documents = await _IDocumentRepository.ListAll();
                 return Ok(documents);
             }
             catch (Exception ex)
@@ -145,7 +145,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                var document = await _IDocumentDomain.Find(documentId);
+                var document = await _IDocumentRepository.Find(documentId);
                 return Ok(document);
             }
             catch (Exception ex)

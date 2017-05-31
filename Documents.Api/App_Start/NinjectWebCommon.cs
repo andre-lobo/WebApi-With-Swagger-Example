@@ -12,6 +12,8 @@ namespace Documents.Api.App_Start
     using Ninject.Web.WebApi;
     using DataAccess.Domains.Users;
     using DataAccess.Domains.Documents;
+    using DataAccess.Repository.Users;
+    using DataAccess.Repository.Documents;
 
     public static class NinjectWebCommon 
     {
@@ -64,8 +66,8 @@ namespace Documents.Api.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IUserDomain>().To<UserDomain>();
-            kernel.Bind<IDocumentDomain>().To<DocumentDomain>();
+            kernel.Bind<IUserRepository>().To<UserDomain>();
+            kernel.Bind<IDocumentRepository>().To<DocumentDomain>();
         }        
     }
 }

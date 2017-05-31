@@ -4,10 +4,11 @@ using Entities.Documents;
 using System.Data.Entity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DataAccess.Repository.Documents;
 
 namespace DataAccess.Domains.Documents
 {
-    public class AttachmentDomain : IAttachmentDomain
+    public class AttachmentDomain : IAttachmentRepository
     {
         #region Public Methods
 

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Http.Description;
-using DataAccess.Domains.Users;
 using System.Threading.Tasks;
 using Entities.Users;
 using System.Collections.Generic;
+using DataAccess.Repository.Users;
 
 namespace Documents.Api.Controllers
 {  
@@ -16,15 +16,15 @@ namespace Documents.Api.Controllers
     {
         #region Private Variables
 
-        private readonly IUserDomain _IUserDomain;
+        private readonly IUserRepository _IUserRepository;
 
         #endregion
 
         #region Constructor
 
-        public UserController(IUserDomain userDomain)
+        public UserController(IUserRepository userDomain)
         {
-            _IUserDomain = userDomain;
+            _IUserRepository = userDomain;
         }
 
         #endregion
@@ -45,7 +45,7 @@ namespace Documents.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var userInserted = await _IUserDomain.Insert(user);
+                    var userInserted = await _IUserRepository.Insert(user);
 
                     if (userInserted != null)
                         return Ok(userInserted);
@@ -76,7 +76,7 @@ namespace Documents.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var userUpdated = await _IUserDomain.Update(userId, user);
+                    var userUpdated = await _IUserRepository.Update(userId, user);
 
                     if (userUpdated != null)
                         return Ok(userUpdated);
@@ -103,7 +103,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                await _IUserDomain.Delete(userId);
+                await _IUserRepository.Delete(userId);
                 return Ok();
             }
             catch (Exception ex)
@@ -123,7 +123,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                var users = await _IUserDomain.ListAll();
+                var users = await _IUserRepository.ListAll();
                 return Ok(users);
             }
             catch (Exception ex)
@@ -144,7 +144,7 @@ namespace Documents.Api.Controllers
         {
             try
             {
-                var user = await _IUserDomain.Find(userId);
+                var user = await _IUserRepository.Find(userId);
                 return Ok(user);
             }
             catch (Exception ex)

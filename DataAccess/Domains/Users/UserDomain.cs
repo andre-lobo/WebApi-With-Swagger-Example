@@ -4,12 +4,11 @@ using Entities.Users;
 using System.Data.Entity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Data.Entity.Validation;
-using System.Diagnostics;
+using DataAccess.Repository.Users;
 
 namespace DataAccess.Domains.Users
 {
-    public class UserDomain : IUserDomain
+    public class UserDomain : IUserRepository
     {
         #region Public Methods
 

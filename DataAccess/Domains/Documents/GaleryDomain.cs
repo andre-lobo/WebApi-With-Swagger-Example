@@ -4,10 +4,11 @@ using Entities.Documents;
 using System.Data.Entity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DataAccess.Repository.Documents;
 
 namespace DataAccess.Domains.Documents
 {
-    public class GaleryDomain : IGaleryDomain
+    public class GaleryDomain : IGaleryRepository
     {
         #region Public Methods
 
