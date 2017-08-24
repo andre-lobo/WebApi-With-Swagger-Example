@@ -20,6 +20,6 @@ Para rodar deve executar o seguinte comando no console do projeto "DomainLayer\D
     <li>MySQL Database</li>
     <li>Entity Framework 6</li>
     <li>Swagger</li>
-    <li>Ninject to resolve IoC and DI</li>
+    <li>Ninject (IoC and DI)</li>
 </ul>
 
